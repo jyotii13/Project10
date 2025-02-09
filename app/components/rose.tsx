@@ -117,7 +117,7 @@ const RosePage: React.FC = () => {
                         animationDuration: '3s',
                     }}
                 >
-                    <Image src={rose.image} alt="Floating Rose" width={100} height={100} className="rounded-full shadow-lg" />
+                    <Image src="/rose4.png" alt="Floating Rose" width={100} height={100} className="rounded-full shadow-lg" />
                 </div>
             ))}
 
