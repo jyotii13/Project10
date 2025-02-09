@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 const Navbar = () => {
-    const user = false;
+    // const user = false;
     return (
         <div className="h-12 text-pink-500 px-6 flex items-center justify-between border-b-2 border-b-pink-500 uppercase md:h-16 lg:px-20 xl:px-40 fixed top-0 left-0 w-full bg-black z-50">
             {/* left links */}

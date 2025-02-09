@@ -22,11 +22,11 @@ const BalloonHome: React.FC = () => {
 
     useEffect(() => {
         const createBalloon = () => {
-            if (balloons.length >= 20) return; // Stop adding balloons if the limit is reached
+            if (balloons.length >= 20) return;
 
             const newBalloon: Balloon = {
                 id: Math.random(),
-                left: Math.random() * 80 + 10, // Keep balloons away from edges
+                left: Math.random() * 80 + 10,
                 delay: Math.random() * 2,
                 color: colors[Math.floor(Math.random() * colors.length)],
                 emoji: emojis[Math.floor(Math.random() * emojis.length)],
@@ -34,12 +34,10 @@ const BalloonHome: React.FC = () => {
             setBalloons((prev) => [...prev, newBalloon]);
         };
 
-        // Create initial balloons
         for (let i = 0; i < 8; i++) {
             createBalloon();
         }
 
-        // Add new balloons periodically
         const interval = setInterval(() => {
             if (balloons.length < 12) {
                 createBalloon();
@@ -47,7 +45,8 @@ const BalloonHome: React.FC = () => {
         }, 3000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [balloons.length, colors, emojis]); // ✅ Add missing dependencies
+
 
     const handleBalloonClick = (id: number) => {
         // Remove clicked balloon with a pop effect
@@ -69,7 +68,7 @@ const BalloonHome: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-purple-50 to-pink-50 relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-b from-red-100 to-pink-200 relative overflow-hidden flex flex-col items-center justify-center p-6 mt-0 pt-0">
             {/* Title */}
             <div className="text-center pt-8">
                 <h1 className="text-4xl font-bold text-pink-500 mb-2">Happy Valentine&apos;s Honey</h1>
